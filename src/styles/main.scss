@@ -1,0 +1,106 @@
+$grey: #ccc;
+$darkGrey: #777;
+$blue: #9fecc2;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  background-color: transparent;
+  border: none;
+  -webkit-user-select: none;
+  user-select: none;
+  cursor: default;
+}
+
+button {
+  cursor: pointer;
+}
+
+body {
+  height: 100vh;
+  padding: 50px;
+  font-family: monospace;
+}
+
+h1 {
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+fieldset {
+  border: 1px solid $grey;
+  padding: 20px;
+
+  legend {
+    padding: 0 20px;
+    font-weight: bold;
+    color: $darkGrey;
+  }
+}
+
+.btn {
+  background: $blue;
+  padding: 20px 40px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgba(black, 0.7);
+  border: 1px solid rgba(black, 0.1);
+
+  &:hover {
+    border-color: rgba(black, 0.2);
+  }
+}
+
+.flow + .flow {
+  margin-top: 20px;
+}
+
+.f {
+  display: flex;
+}
+
+.f-eq {
+  > * {
+    flex: 1;
+  }
+}
+
+.f-center {
+  align-items: center;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.InputNumber {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  border: 1px solid $grey;
+
+  .InputNumber--arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 40px;
+    background: $grey;
+    font-weight: bold;
+  }
+
+  .InputNumber--input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    width: 100%;
+    text-align: center;
+    font-size: 25px;
+  }
+}
