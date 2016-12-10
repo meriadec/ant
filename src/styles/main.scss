@@ -30,15 +30,31 @@ h1 {
   margin-bottom: 50px;
 }
 
-fieldset {
+h2 {
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+em {
+  font-style: italic;
+}
+
+.Setup {
+  display: flex;
+}
+
+.Setup-block {
+  flex: 1;
   border: 1px solid $grey;
   padding: 20px;
-
-  legend {
-    padding: 0 20px;
-    font-weight: bold;
-    color: $darkGrey;
+  & + & {
+    border-left: none;
   }
+}
+
+.link {
+  color: #0000EE;
+  text-decoration: underline;
 }
 
 .btn {
@@ -58,9 +74,8 @@ fieldset {
   }
 }
 
-.flow + .flow {
-  margin-top: 20px;
-}
+.flow + .flow { margin-top: 20px; }
+.flow-semi + .flow-semi { margin-top: 10px; }
 
 .f {
   display: flex;
@@ -83,8 +98,8 @@ label {
 }
 
 .InputNumber {
-  width: 200px;
-  height: 60px;
+  width: 150px;
+  height: 30px;
   display: flex;
   border: 1px solid $grey;
 
@@ -105,7 +120,6 @@ label {
     flex-grow: 1;
     width: 100%;
     text-align: center;
-    font-size: 25px;
   }
 }
 

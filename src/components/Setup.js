@@ -3,6 +3,7 @@ import _ from 'lodash'
 import { connect } from 'react-redux'
 
 import InputNumber from 'components/InputNumber'
+import SavedHeaps from 'components/SavedHeaps'
 
 @connect(state => ({
   heaps: state.ant,
@@ -16,8 +17,17 @@ import InputNumber from 'components/InputNumber'
     dispatch({ type: 'SET_HEAP_VALUE', payload: { i, v } })
   },
 
+  saveHeaps (heaps) {
+    dispatch({ type: 'SAVE_HEAPS', payload: heaps })
+  },
+
 }))
 class Setup extends Component {
+
+  saveHeaps () {
+    const { saveHeaps, heaps } = this.props
+    saveHeaps(heaps)
+  }
 
   render () {
 
@@ -28,11 +38,8 @@ class Setup extends Component {
     } = this.props
 
     return (
-      <form>
-        <fieldset>
-          <legend>
-            {'initial data'}
-          </legend>
+      <div className='Setup'>
+        <div className='Setup-block'>
 
           <div className='f f-center flow'>
             <label>
@@ -44,6 +51,13 @@ class Setup extends Component {
               value={heaps.length}
               onChange={setHeapsNb}
             />
+            <button
+              className='link'
+              style={{ marginLeft: 20 }}
+              onClick={::this.saveHeaps}
+            >
+              {'save'}
+            </button>
           </div>
 
           <div className='flow'>
@@ -69,8 +83,11 @@ class Setup extends Component {
             ))}
 
           </div>
-        </fieldset>
-      </form>
+        </div>
+        <div className='Setup-block'>
+          <SavedHeaps />
+        </div>
+      </div>
     )
   }
 

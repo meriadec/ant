@@ -36,10 +36,22 @@ class Next extends Component {
   }
 
   fastForward () {
-    this.setState({
-      playing: false,
-      fastForwarding: true,
-    }, this.loop)
+    const { playing, fastForwarding } = this.state
+    if (this._timeout) {
+      clearTimeout(this._timeout)
+      this._timeout = null
+    }
+    if (fastForwarding) {
+      this.setState({
+        playing: false,
+        fastForwarding: false,
+      })
+    } else {
+      this.setState({
+        playing: false,
+        fastForwarding: true,
+      }, this.loop)
+    }
   }
 
   loop = () => {

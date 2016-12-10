@@ -39,4 +39,6 @@ export default handleActions({
     return newHeaps
   },
 
+  RESTORE: (state, { payload: heaps }) => heaps,
+
 }, heaps)
