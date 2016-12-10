@@ -8,6 +8,7 @@ const Html = ({ content, state, stats: { style, main = 'bundle.js' } }) => (
 
       <meta charSet='utf-8' />
       <link rel='icon' href='/assets/favicon.ico' type='image/x-icon' />
+      <link rel='stylesheet' href='http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css' />
 
       {style && <link href={`/dist/${style}`} rel='stylesheet' />}
 

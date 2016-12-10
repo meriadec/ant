@@ -20,7 +20,7 @@ button {
 }
 
 body {
-  height: 100vh;
+  min-height: 100vh;
   padding: 50px;
   font-family: monospace;
 }
@@ -51,6 +51,10 @@ fieldset {
 
   &:hover {
     border-color: rgba(black, 0.2);
+  }
+  &.active {
+    background-color: #45bda7;
+    color: white;
   }
 }
 
@@ -107,6 +111,6 @@ label {
 
 .Next {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 50px;
+  right: 50px;
 }
