@@ -1,0 +1,23 @@
+{
+  "apps": [{
+
+    "name"  : "Ant",
+    "script": "bin/start.js",
+
+    "env_production": {
+      NODE_ENV: "production"
+    }
+
+  }],
+
+  "deploy": {
+    "production": {
+      "user"       : "pm2",
+      "host"       : "sigsev.io",
+      "ref"        : "origin/master",
+      "repo"       : "git@github.com:meriadec/ant.git",
+      "path"       : "/var/www/ant",
+      "post-deploy": "npm prune && npm i && npm run build && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}

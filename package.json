@@ -6,7 +6,9 @@
     "preview": "npm run build && npm run prod",
     "prod": "NODE_ENV=production npm start",
     "start": "node bin/start",
-    "lint": "eslint src webpack bin"
+    "lint": "eslint src webpack bin",
+    "pm2:setup": "pm2 deploy ecosystem.json production setup",
+    "deploy": "pm2 deploy ecosystem.json production"
   },
   "babel": {
     "presets": [
@@ -37,6 +39,7 @@
     "es6-promisify": "^5.0.0",
     "express": "^4.14.0",
     "lodash": "^4.17.2",
+    "pm2": "^2.1.6",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-redux": "^4.4.6",
