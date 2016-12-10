@@ -23,4 +23,20 @@ export default handleActions({
     return newHeaps
   },
 
+  NEXT: (heaps) => {
+    let newHeaps = _.clone(heaps)
+    let inAnt = 0
+    _.forEach(newHeaps, (val, i) => {
+      // take a rice into heap
+      inAnt++
+      // decrement rice
+      newHeaps[i] = val - 1
+    })
+    // put all rices to the ground
+    newHeaps.push(inAnt)
+    // remove empty heaps
+    newHeaps = newHeaps.filter(h => h !== 0)
+    return newHeaps
+  },
+
 }, heaps)

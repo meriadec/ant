@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import Visualizer from 'components/Visualizer'
 import Setup from 'components/Setup'
+import Next from 'components/Next'
 
 class Home extends Component {
 
@@ -10,9 +11,11 @@ class Home extends Component {
       <div>
         <h1>{'the ant problem'}</h1>
 
-        <Setup />
+        <Next />
 
         <Visualizer />
+
+        <Setup />
 
       </div>
     )

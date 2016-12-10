@@ -19,11 +19,6 @@ import InputNumber from 'components/InputNumber'
 }))
 class Setup extends Component {
 
-  handleSubmit (e) {
-    e.preventDefault()
-    console.log(`starting...`)
-  }
-
   render () {
 
     const {
@@ -33,7 +28,7 @@ class Setup extends Component {
     } = this.props
 
     return (
-      <form onSubmit={::this.handleSubmit}>
+      <form>
         <fieldset>
           <legend>
             {'initial data'}
@@ -74,10 +69,6 @@ class Setup extends Component {
             ))}
 
           </div>
-
-          <button className='btn submit flow'>
-            {'Start'}
-          </button>
         </fieldset>
       </form>
     )
