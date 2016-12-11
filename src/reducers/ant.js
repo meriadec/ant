@@ -19,6 +19,7 @@ export default handleActions({
 
   SET_HEAP_VALUE: (heaps, { payload: { i, v } }) => {
     if (heaps.length === 1 && v === 0) { return heaps }
+    if (v > 10) { return heaps }
     let newHeaps = _.clone(heaps)
     newHeaps[i] = v
     if (newHeaps[i] <= 0) {

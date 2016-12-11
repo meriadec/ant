@@ -9,4 +9,5 @@ export default handleActions({
     newState.push(heaps)
     return newState
   },
+  CLEAR_HEAPS: () => ([]),
 }, initialState)
