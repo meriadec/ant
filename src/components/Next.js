@@ -8,10 +8,12 @@ import _ from 'lodash'
   heaps: state.ant,
 }), dispatch => ({
   next () {
-    dispatch({
-      type: 'NEXT',
-    })
+    dispatch({ type: 'NEXT', })
   },
+
+  resetIterations () {
+    dispatch({ type: 'RESET_ITERATIONS', })
+  }
 }))
 class Next extends Component {
 
@@ -32,6 +34,10 @@ class Next extends Component {
           iterations: this.state.iterations + 1,
         })
       }
+    } else if (nextProps.iterations < this.props.iterations) {
+      this.setState({
+        iterations: nextProps.iterations,
+      })
     }
   }
 
@@ -94,6 +100,7 @@ class Next extends Component {
   render () {
 
     const {
+      resetIterations,
       next,
     } = this.props
 
@@ -114,7 +121,10 @@ class Next extends Component {
         <button className={cx('btn', { active: fastForwarding })} onClick={::this.fastForward}>
           <i className='ion-ios-fastforward' />
         </button>
-        {` iterations: ${iterations}`}
+        {` iterations: ${iterations} - `}
+        <button className='link' onClick={resetIterations}>
+          {'reset'}
+        </button>
       </div>
     )
   }

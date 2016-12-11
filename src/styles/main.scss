@@ -10,14 +10,13 @@ $blue: #9fecc2;
   color: inherit;
   background-color: transparent;
   border: none;
-  -webkit-user-select: none;
-  user-select: none;
-  cursor: default;
   outline: none;
 }
 
 button {
   cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 body {
@@ -38,18 +37,6 @@ h2 {
 
 em {
   font-style: italic;
-}
-
-.Setup {
-}
-
-.Setup-block {
-  flex: 1;
-  border: 1px solid $grey;
-  padding: 20px;
-  & + & {
-    border-left: none;
-  }
 }
 
 .link {
@@ -87,12 +74,6 @@ em {
 
 .f-center {
   align-items: center;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  margin-right: 10px;
 }
 
 .InputNumber {

@@ -1,18 +1,44 @@
 .Visualizer {
   margin-bottom: 50px;
+  margin-top: 50px;
   display: flex;
   align-items: flex-end;
   min-height: 300px;
 }
 
-.Heap {
+.Heap + .Heap {
+  margin-left: 30px;
+}
 
+.Heap + .AddHeap {
+  margin-left: 20px;
 }
 
 .Rice {
   width: 55px;
   height: 20px;
   background: #f57b60;
-  margin: 5px 10px;
+  margin: 5px 0;
   border-radius: 4px;
+}
+
+.Heap-actions {
+  display: flex;
+  justify-content: space-around;
+  > button {
+    font-size: 13px;
+    background: #ddd;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.Heap-nb {
+  text-align: center;
+  margin-top: 10px;
+  color: rgba(black, 0.6);
+  font-weight: bold;
+  cursor: default;
+  -webkit-user-select: none;
+  user-select: none;
 }

@@ -32,14 +32,26 @@ class SavedHeaps extends Component {
     return (
       <div>
         <h2>{'Saved heaps'}</h2>
-        <div>
+        <div
+          className='f f-center'
+          style={{ marginBottom: 20 }}
+        >
           <button
             className='link'
-            style={{ marginBottom: 20 }}
             onClick={::this.saveHeaps}
           >
-            {'save'}
+            {'save current'}
           </button>
+          <span style={{ margin: '0 10px' }}>
+            {' - '}
+          </span>
+          <label className='f f-center'>
+            <input
+              type='checkbox'
+              style={{ marginRight: 5 }}
+            />
+            {'record'}
+          </label>
         </div>
         {saved.length > 0 ? saved.map((s, i) => (
           <div key={i} className='flow-semi'>

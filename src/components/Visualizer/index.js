@@ -6,6 +6,16 @@ import './style.scss'
 
 @connect(state => ({
   heaps: state.ant,
+}), dispatch => ({
+
+  setHeapValue (i, v) {
+    dispatch({ type: 'SET_HEAP_VALUE', payload: { i, v } })
+  },
+
+  addHeap () {
+    dispatch({ type: 'ADD_HEAP' })
+  },
+
 }))
 class Visualizer extends Component {
 
@@ -13,10 +23,13 @@ class Visualizer extends Component {
 
     const {
       heaps,
+      setHeapValue,
+      addHeap,
     } = this.props
 
     return (
       <div className='Visualizer'>
+
         {heaps.map((heap, i) => (
           <div
             className='Heap'
@@ -25,8 +38,28 @@ class Visualizer extends Component {
             {_.times(heap, i => (
               <div key={i} className='Rice' />
             ))}
+            <div className='Heap-actions'>
+              <button onClick={() => setHeapValue(i, heap - 1)}>
+                <i className='ion-minus' />
+              </button>
+              <button onClick={() => setHeapValue(i, heap + 1)}>
+                <i className='ion-plus' />
+              </button>
+            </div>
+            <div className='Heap-nb'>
+              {heap}
+            </div>
           </div>
         ))}
+
+        {heaps.length < 10 && (
+          <div className='AddHeap'>
+            <button className='link' onClick={addHeap}>
+              {'+ new'}
+            </button>
+          </div>
+        )}
+
       </div>
     )
   }

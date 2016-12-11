@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Visualizer from 'components/Visualizer'
-import Setup from 'components/Setup'
+import SavedHeaps from 'components/SavedHeaps'
 import Next from 'components/Next'
 
 class Home extends Component {
@@ -15,7 +15,7 @@ class Home extends Component {
 
         <Visualizer />
 
-        <Setup />
+        <SavedHeaps />
 
       </div>
     )

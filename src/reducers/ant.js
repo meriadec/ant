@@ -18,8 +18,12 @@ export default handleActions({
   },
 
   SET_HEAP_VALUE: (heaps, { payload: { i, v } }) => {
-    const newHeaps = _.clone(heaps)
+    if (heaps.length === 1 && v === 0) { return heaps }
+    let newHeaps = _.clone(heaps)
     newHeaps[i] = v
+    if (newHeaps[i] <= 0) {
+      newHeaps = newHeaps.filter((e, ci) => i !== ci)
+    }
     return newHeaps
   },
 
@@ -37,6 +41,10 @@ export default handleActions({
     // remove empty heaps
     newHeaps = newHeaps.filter(h => h !== 0)
     return newHeaps
+  },
+
+  ADD_HEAP: (heaps) => {
+    return heaps.concat(heaps[heaps.length - 1])
   },
 
   RESTORE: (state, { payload: heaps }) => heaps,
