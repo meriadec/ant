@@ -29,37 +29,45 @@ class Visualizer extends Component {
 
     return (
       <div className='Visualizer'>
+        <div className='Heaps'>
 
-        {heaps.map((heap, i) => (
-          <div
-            className='Heap'
-            key={i}
-          >
-            {_.times(heap, i => (
-              <div key={i} className='Rice' />
-            ))}
-            <div className='Heap-actions'>
-              <button onClick={() => setHeapValue(i, heap - 1)}>
-                <i className='ion-minus' />
-              </button>
-              <button onClick={() => setHeapValue(i, heap + 1)}>
-                <i className='ion-plus' />
+          {heaps.map((heap, i) => (
+            <div
+              className='Heap'
+              key={i}
+            >
+              {_.times(heap, i => (
+                <div key={i} className='Rice' />
+              ))}
+              <div className='Heap-actions'>
+                <button onClick={() => setHeapValue(i, heap - 1)}>
+                  <i className='ion-minus' />
+                </button>
+                <button onClick={() => setHeapValue(i, heap + 1)}>
+                  <i className='ion-plus' />
+                </button>
+              </div>
+              <div className='Heap-nb'>
+                {heap}
+              </div>
+            </div>
+          ))}
+
+          {heaps.length < 10 && (
+            <div className='AddHeap'>
+              <button className='link' onClick={addHeap}>
+                {'+ new'}
               </button>
             </div>
-            <div className='Heap-nb'>
-              {heap}
-            </div>
-          </div>
-        ))}
+          )}
 
-        {heaps.length < 10 && (
-          <div className='AddHeap'>
-            <button className='link' onClick={addHeap}>
-              {'+ new'}
-            </button>
-          </div>
-        )}
-
+        </div>
+        <div className='Total'>
+          {'Total: '}
+          <span className='Iterations'>
+            {_.sum(heaps)}
+          </span>
+        </div>
       </div>
     )
   }

@@ -7,7 +7,6 @@ $blue: #9fecc2;
   margin: 0;
   padding: 0;
   font: inherit;
-  color: inherit;
   background-color: transparent;
   border: none;
   outline: none;
@@ -112,4 +111,11 @@ em {
   background: #ddd;
   color: red;
   padding: 5px 8px;
+}
+
+.Hint {
+  margin-top: 80px;
+  font-style: italic;
+  background: yellow;
+  padding: 20px;
 }

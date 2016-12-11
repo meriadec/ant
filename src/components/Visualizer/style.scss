@@ -1,6 +1,9 @@
 .Visualizer {
   margin-bottom: 50px;
   margin-top: 50px;
+}
+
+.Heaps {
   display: flex;
   align-items: flex-end;
   min-height: 300px;
@@ -41,4 +44,8 @@
   cursor: default;
   -webkit-user-select: none;
   user-select: none;
+}
+
+.Total {
+  margin-top: 20px;
 }

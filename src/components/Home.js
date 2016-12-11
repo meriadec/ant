@@ -17,6 +17,13 @@ class Home extends Component {
 
         <SavedHeaps />
 
+        <div className='Hint'>
+          {'Hint: [ 3, 6, 10, 15, 21, 28, 36, 45, ... ] see '}
+          <a target='_blank' rel='noreferer noopener' href='https://en.wikipedia.org/wiki/Triangular_number'>
+            {'Triangular number'}
+          </a>
+        </div>
+
       </div>
     )
   }
