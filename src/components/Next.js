@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import cx from 'classnames'
 import { connect } from 'react-redux'
+import _ from 'lodash'
 
-@connect(null, dispatch => ({
+@connect(state => ({
+  iterations: state.iterations,
+  heaps: state.ant,
+}), dispatch => ({
   next () {
     dispatch({
       type: 'NEXT',
@@ -12,8 +16,34 @@ import { connect } from 'react-redux'
 class Next extends Component {
 
   state = {
+    iterations: 0,
     playing: false,
     fastForwarding: false,
+  }
+
+  componentWillReceiveProps (nextProps) {
+    // just calculated next state,
+    // let's see if we stop
+    if (nextProps.iterations > this.props.iterations) {
+      if (_.isEqual(this.props.heaps, nextProps.heaps)) {
+        this.stop()
+      } else {
+        this.setState({
+          iterations: this.state.iterations + 1,
+        })
+      }
+    }
+  }
+
+  stop () {
+    if (this._timeout) {
+      clearTimeout(this._timeout)
+      this._timeout = null
+    }
+    this.setState({
+      playing: false,
+      fastForwarding: false,
+    })
   }
 
   play () {
@@ -62,11 +92,17 @@ class Next extends Component {
   }
 
   render () {
-    const { next } = this.props
+
+    const {
+      next,
+    } = this.props
+
     const {
       playing,
       fastForwarding,
+      iterations,
     } = this.state
+
     return (
       <div className='Next'>
         <button
@@ -78,6 +114,7 @@ class Next extends Component {
         <button className={cx('btn', { active: fastForwarding })} onClick={::this.fastForward}>
           <i className='ion-ios-fastforward' />
         </button>
+        {` iterations: ${iterations}`}
       </div>
     )
   }
