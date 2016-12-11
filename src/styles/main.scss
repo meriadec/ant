@@ -13,6 +13,7 @@ $blue: #9fecc2;
   -webkit-user-select: none;
   user-select: none;
   cursor: default;
+  outline: none;
 }
 
 button {
@@ -40,7 +41,6 @@ em {
 }
 
 .Setup {
-  display: flex;
 }
 
 .Setup-block {
@@ -58,15 +58,13 @@ em {
 }
 
 .btn {
-  background: $blue;
+  background: rgba(black, 0.2);
   padding: 20px 40px;
   text-transform: uppercase;
   font-weight: bold;
   color: rgba(black, 0.7);
-  border: 1px solid rgba(black, 0.1);
 
   &:hover {
-    border-color: rgba(black, 0.2);
   }
   &.active {
     background-color: #45bda7;
@@ -124,7 +122,4 @@ label {
 }
 
 .Next {
-  position: absolute;
-  top: 50px;
-  right: 50px;
 }

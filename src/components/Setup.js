@@ -6,7 +6,6 @@ import InputNumber from 'components/InputNumber'
 import SavedHeaps from 'components/SavedHeaps'
 
 @connect(state => ({
-  heaps: state.ant,
 }), dispatch => ({
 
   setHeapsNb (nb) {
@@ -24,11 +23,6 @@ import SavedHeaps from 'components/SavedHeaps'
 }))
 class Setup extends Component {
 
-  saveHeaps () {
-    const { saveHeaps, heaps } = this.props
-    saveHeaps(heaps)
-  }
-
   render () {
 
     const {
@@ -39,54 +33,7 @@ class Setup extends Component {
 
     return (
       <div className='Setup'>
-        <div className='Setup-block'>
-
-          <div className='f f-center flow'>
-            <label>
-              {'Number of heaps:'}
-            </label>
-            <InputNumber
-              min={1}
-              max={5}
-              value={heaps.length}
-              onChange={setHeapsNb}
-            />
-            <button
-              className='link'
-              style={{ marginLeft: 20 }}
-              onClick={::this.saveHeaps}
-            >
-              {'save'}
-            </button>
-          </div>
-
-          <div className='flow'>
-            <label style={{ marginBottom: 20 }}>
-              {'Heaps:'}
-            </label>
-
-            {_.times(heaps.length, i => (
-              <div
-                key={i}
-                className='f f-center flow'
-              >
-                <label>
-                  {i}
-                </label>
-                <InputNumber
-                  min={1}
-                  max={10}
-                  value={heaps[i]}
-                  onChange={v => setHeapValue(i, v)}
-                />
-              </div>
-            ))}
-
-          </div>
-        </div>
-        <div className='Setup-block'>
-          <SavedHeaps />
-        </div>
+        <SavedHeaps />
       </div>
     )
   }
